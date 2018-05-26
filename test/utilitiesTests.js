@@ -52,5 +52,26 @@ describe('Utilities', function() {
 
       assert.strictEqual(utilities.removeInlineComments(input), output);
     });
+
+    it('should remove inline comment if it is at the end of a line separated by a semicolon', function() {
+      var input = '1px solid blue;// this is a comment';
+      var output = '1px solid blue';
+
+      assert.strictEqual(utilities.removeInlineComments(input), output);
+    });
+
+    it('should remove inline comment if it is including http(s)://', function() {
+      var input = 'http://www.google.com;// this is a comment';
+      var output = 'http://www.google.com';
+
+      assert.strictEqual(utilities.removeInlineComments(input), output);
+    });
+
+    it('should remove inline comment if it is including http(s)://', function() {
+      var input = 'https://www.google.com;// this is a comment';
+      var output = 'https://www.google.com';
+
+      assert.strictEqual(utilities.removeInlineComments(input), output);
+    });
   });
 });

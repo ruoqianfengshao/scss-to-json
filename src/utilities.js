@@ -14,14 +14,19 @@ var Utilities = {
   },
 
   removeInlineComments: function(value) {
+    if (/\;+\s*\/\//.test(value)) {
+      return value.replace(/\;+\s*\/\/.*/g, '');
+    }
+
     var transformedValue = value;
-    var commentIndex = value.indexOf('//');
+    var commentIndex = value.indexOf('//')
 
     if (commentIndex > -1) {
-      transformedValue = transformedValue.substring(0, commentIndex);
+      transformedValue = transformedValue.substring(0, commentIndex)
     }
 
     return transformedValue;
+
   }
 };
 
