@@ -14,8 +14,8 @@ var Utilities = {
   },
 
   removeInlineComments: function(value) {
-    if (/\;+\s*\/\//.test(value)) {
-      return value.replace(/\;+\s*\/\/.*/g, '');
+    if (/:\/\//.test(value)) {
+      return value.replace(/([^:]|^)\/\/.*$/g, '');
     }
 
     var transformedValue = value;

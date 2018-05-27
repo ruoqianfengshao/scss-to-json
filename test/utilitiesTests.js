@@ -55,7 +55,7 @@ describe('Utilities', function() {
 
     it('should remove inline comment if it is at the end of a line separated by a semicolon', function() {
       var input = '1px solid blue;// this is a comment';
-      var output = '1px solid blue';
+      var output = '1px solid blue;';
 
       assert.strictEqual(utilities.removeInlineComments(input), output);
     });
